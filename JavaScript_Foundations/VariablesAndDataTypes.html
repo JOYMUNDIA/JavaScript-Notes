@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Variables & Data Types - Complete Guide</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.7;
+    background: #f4f4f4;
+    color: #333;
+  }
+
+  header {
+    background: #0d1117;
+    color: #fff;
+    padding: 3rem 1rem;
+    text-align: center;
+    border-radius: 20px;
+    margin: 1rem;
+    box-shadow: 
+      inset 8px 8px 16px rgba(255, 255, 255, 0.05),
+      inset -8px -8px 16px rgba(0, 0, 0, 0.7),
+      8px 8px 16px rgba(0,0,0,0.3),
+      -8px -8px 16px rgba(255,255,255,0.05);
+    transition: transform 0.3s ease;
+  }
+
+  header:hover {
+    transform: translateY(-5px);
+  }
+
+  #typewriter::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+    color: #0ff;
+    margin-left: 2px;
+  }
+
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }
+
+  header p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #ccc;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  section {
+    margin-bottom: 3rem;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, 
+                rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, 
+                rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, 
+                rgba(0, 0, 0, 0.06) 0px 2px 1px, 
+                rgba(0, 0, 0, 0.09) 0px 4px 2px, 
+                rgba(0, 0, 0, 0.09) 0px 8px 4px, 
+                rgba(0, 0, 0, 0.09) 0px 16px 8px, 
+                rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  }
+
+  h2 {
+    color: #0d1117;
+    margin-top: 0;
+  }
+
+  pre {
+    background: #0d1117;
+    color: #0ff;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  .challenge {
+    background: #eaf7ff;
+    padding: 1rem;
+    border-left: 5px solid #0ff;
+    margin-top: 1rem;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 2rem;
+    }
+  }
+
+  /* 3D Cubes */
+  /* Scene */
+.scene {
+  width: 100px;  /* smaller to fit inline */
+  height: 100px;
+}
+
+/* Cube */
+.cube {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-20deg) rotateY(30deg);
+  transition: transform 1.5s ease;
+}
+
+.cube:hover {
+  transform: rotateX(-20deg) rotateY(390deg);
+}
+
+/* Shared face style */
+.face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Clean metallic gradient */
+  background: linear-gradient(
+    160deg,
+    rgba(220,225,232,0.35),
+    rgba(180,190,205,0.25),
+    rgba(140,150,165,0.30)
+  );
+
+  border: 1px solid rgba(255,255,255,0.5);
+
+  box-shadow:
+    inset -12px -12px 25px rgba(255,255,255,0.25),
+    inset 12px 12px 25px rgba(0,0,0,0.12),
+    0 15px 30px rgba(0,0,0,0.15);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Face positioning */
+.front  { transform: translateZ(50px); }
+.back   { transform: rotateY(180deg) translateZ(50px); }
+.right  { transform: rotateY(90deg) translateZ(50px); }
+.left   { transform: rotateY(-90deg) translateZ(50px); }
+.top    { transform: rotateX(90deg) translateZ(50px); }
+.bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+/* Label */
+.label {
+  position: absolute;
+  top: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: linear-gradient(to bottom, #eef2f7, #cfd6df);
+  color: #2f3b4a;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* 3D Number */
+.number {
+  font-size: 36px;
+  font-weight: bold;
+  color: #f4f7fa;
+  transform: translateZ(25px);
+  text-shadow:
+    1px 1px 0 #cfd6df,
+    2px 2px 0 #b8c1cc,
+    3px 3px 6px rgba(0,0,0,0.35);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1 id="typewriter"></h1>
+  <p>From Zero Knowledge → Confident JavaScript Developer</p>
+</header>
+
+<main>
+
+<section>
+<h2>Step 1: What Is a Variable?</h2>
+
+<p>
+Think of a variable as a labeled box in memory.
+</p>
+
+<p>
+The computer creates a space in memory, attaches a name to it, and stores a value inside.
+</p>
+
+<pre>
+let age = 25;
+</pre>
+
+<p>
+Here’s what happens:<br/>
+1. The engine creates a box labeled <strong>age</strong>.<br/>
+2. It stores the number <strong>25</strong> inside it.
+</p>
+
+<p>
+Later, you can change what’s inside that box.
+</p>
+
+<pre>
+age = 30;
+</pre>
+
+<p>
+Now the box contains 30 instead of 25.
+</p>
+
+<!-- 3D Metallic Cubes -->
+<div style="display: flex; justify-content: start; gap: 4rem; flex-wrap: wrap; margin-top: 20px; padding-bottom: 1rem;">
+
+  <!-- Empty Cube -->
+  <div class="scene">
+    <div class="cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+
+  <!-- Cube with label "age" -->
+  <div class="scene">
+    <div class="cube">
+      <div class="face front">
+        <div class="label">age</div>
+      </div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+
+  <!-- Cube with label "age" + 25 -->
+  <div class="scene">
+    <div class="cube">
+      <div class="face front">
+        <div class="label">age</div>
+        <div class="number">25</div>
+      </div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+
+  <!-- Cube with label "age" + 30 -->
+  <div class="scene">
+    <div class="cube">
+      <div class="face front">
+        <div class="label">age</div>
+        <div class="number">30</div>
+      </div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="challenge">
+<strong>Mini Challenge:</strong>  
+Create a variable called <code>city</code> and store your city name inside it.
+</div>
+</section>
+
+<section>
+  <h2>Step 2: <code>var</code>, <code>let</code>, and <code>const</code> – Variables 101</h2>
+
+  <h3>1️⃣ What Does “Declare a Variable” Mean?</h3>
+  <p>
+    When we <strong>declare a variable</strong>, we’re telling JavaScript:
+  </p>
+  <blockquote>
+    “Hey JavaScript, please <strong>reserve a labeled box in memory</strong> for me. I might put something inside it now or later.”
+  </blockquote>
+  <pre><code>let age;</code></pre>
+  <ul>
+    <li><code>let</code> → keyword that tells JS we’re declaring a variable.</li>
+    <li><code>age</code> → the <strong>name of the box</strong>.</li>
+    <li>No value yet → the box is empty, its value is <code>undefined</code>.</li>
+  </ul>
+
+  <br/>
+  <!-- Cube with label "age" -->
+  <div class="scene">
+    <div class="cube">
+      <div class="face front">
+        <div class="label">age</div>
+      </div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+  <br/>
+
+  <h3>2️⃣ What Does “Assign a Value” Mean?</h3>
+  <p><strong>Assignment</strong> = putting something inside an existing box. You can assign as many times as you want (unless it’s a <code>const</code>).</p>
+  <pre><code>age = 25;  // assign the value 25 to the variable 'age'</code></pre>
+  <ul>
+    <li><code>age</code> already exists (declared).</li>
+    <li>Now the box <strong>contains 25</strong>.</li>
+  </ul>
+
+  <br/>
+  <!-- Cube with label "age" + 25 -->
+  <div class="scene">
+    <div class="cube">
+      <div class="face front">
+        <div class="label">age</div>
+        <div class="number">25</div>
+      </div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+  <br/>
+
+  <h3>3️⃣ What Does “Initialize a Variable” Mean?</h3>
+  <p><strong>Initialization</strong> = declaring <strong>and</strong> assigning a value at the same time.</p>
+  <pre><code>let age = 25;  // declare + assign → initialize</code></pre>
+  <ul>
+    <li>Declare = create the box</li>
+    <li>Assign = put something inside the box</li>
+  </ul>
+  
+  <h3>4️⃣ <code>var</code> – The “Old, Flexible” Declaration</h3>
+  <pre><code>var name = "Alice";</code></pre>
+  <ul>
+    <li><code>var</code> tells JS: “Make a box for me named <code>name</code>.”</li>
+    <li>Quirks of <code>var</code>:
+      <ol>
+        <li><strong>Function scope, not block scope</strong> → can escape { } blocks.</li>
+        <li>Can be <strong>redeclared</strong> in the same scope.</li>
+      </ol>
+    </li>
+  </ul>
+  <pre><code>if (true) {
+  var test = "hello";
+}
+console.log(test); // ✅ "hello"</code></pre>
+  <p><strong>Analogy:</strong> A mailbox without a fence—it can appear anywhere on the street.</p>
+
+  <h3>5️⃣ <code>let</code> – The “Modern, Safe” Declaration</h3>
+  <pre><code>let greeting = "Hi";</code></pre>
+  <ul>
+    <li><code>let</code> tells JS: “Make a box named <code>greeting</code>, but <strong>keep it inside this block</strong>.”</li>
+    <li>Cannot redeclare the same name in the same scope.</li>
+  </ul>
+  <pre><code>if (true) {
+  let message = "Hello";
+}
+console.log(message); // ❌ ReferenceError</code></pre>
+  <p><strong>Analogy:</strong> A mailbox inside your fenced yard—only accessible inside the yard. Safer than <code>var</code>.</p>
+
+  <h3>6️⃣ <code>const</code> – The “Locked Box” Declaration</h3>
+  <pre><code>const PI = 3.14;</code></pre>
+  <ul>
+    <li><code>const</code> tells JS: “Make a box named <code>PI</code> <strong>and don’t let me replace it</strong>.”</li>
+    <li>Must be <strong>initialized immediately</strong>.</li>
+    <li>If the value is an object or array, <strong>the contents can change</strong>, but the box itself cannot point somewhere else.</li>
+  </ul>
+  <pre><code>const colors = ["red", "blue"];
+colors.push("green"); // ✅ Allowed
+colors = [];          // ❌ Error</code></pre>
+  <p><strong>Analogy:</strong> A safe with a permanent label—you can rearrange the stuff inside (if it’s an object/array) but you can’t replace the safe itself.</p>
+
+  <h3>7️⃣ Quick Comparison</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Keyword</th>
+        <th>Scope</th>
+        <th>Reassignable</th>
+        <th>Redeclarable</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>var</td><td>function</td><td>yes</td><td>yes</td><td>Avoid in modern JS</td></tr>
+      <tr><td>let</td><td>block</td><td>yes</td><td>no</td><td>Modern, safe choice</td></tr>
+      <tr><td>const</td><td>block</td><td>no</td><td>no</td><td>Default for constants</td></tr>
+    </tbody>
+  </table>
+
+  <h3>8️⃣ Mini Challenges – Practice Understanding</h3>
+  <ul>
+    <li><strong>Declare</strong> a variable named <code>city</code> but don’t assign a value yet.</li>
+    <li><strong>Assign</strong> your city to it later.</li>
+    <li><strong>Initialize</strong> a variable <code>score</code> with <code>0</code>.</li>
+    <li>Try reassigning a <code>const</code> variable and see what happens.</li>
+  </ul>
+
+  <h3>9️⃣ Real-Life Rule of Thumb</h3>
+  <blockquote>
+    <strong>Whenever you declare a variable, ask yourself:</strong>
+    <ul>
+      <li>Will this value <strong>ever change</strong>? → Use <code>let</code>.</li>
+      <li>Should this value <strong>never change</strong>? → Use <code>const</code>.</li>
+      <li>Only use <code>var</code> if you are debugging old JavaScript.</li>
+    </ul>
+  </blockquote>
+</section>
+
+
+<section>
+<h2>Step 3: Primitive Data Types (Complete Understanding)</h2>
+
+<p>
+Primitive types are simple, immutable values.
+They are copied by value.
+</p>
+
+<h3>1. String</h3>
+<pre>
+let name = "Alice";
+</pre>
+
+<h3>2. Number</h3>
+<pre>
+let price = 19.99;
+</pre>
+
+<h3>3. Boolean</h3>
+<pre>
+let isLoggedIn = true;
+</pre>
+
+<h3>4. Undefined</h3>
+<pre>
+let x;
+</pre>
+
+<h3>5. Null</h3>
+<pre>
+let selectedUser = null;
+</pre>
+
+<p>
+null means intentional absence.
+undefined means not assigned yet.
+</p>
+
+<h3>6. BigInt</h3>
+<pre>
+let big = 9007199254740991n;
+</pre>
+
+<h3>7. Symbol</h3>
+<pre>
+let id = Symbol("id");
+</pre>
+
+<div class="challenge">
+Create one variable for each primitive type.
+</div>
+</section>
+
+<section>
+<h2>Step 4: Type Coercion (Master This or Suffer Bugs)</h2>
+
+<p>
+JavaScript automatically converts types when needed.
+</p>
+
+<pre>
+"5" + 2   // "52"
+"5" - 2   // 3
+true + 1  // 2
+false + 1 // 1
+</pre>
+
+<p>
+The + operator prefers strings.
+Other math operators prefer numbers.
+</p>
+
+<h3>Explicit Conversion (Professional Way)</h3>
+
+<pre>
+Number("5")  // 5
+String(10)   // "10"
+Boolean(1)   // true
+</pre>
+
+<p>
+Pros avoid relying on automatic coercion.
+</p>
+
+<div class="challenge">
+Predict the result:
+<pre>
+"10" + 5 - 3
+</pre>
+</div>
+</section>
+
+<section>
+<h2>Step 5: typeof (Debug Like a Pro)</h2>
+
+<pre>
+typeof "hello"   // string
+typeof 42        // number
+typeof true      // boolean
+typeof undefined // undefined
+typeof null      // object (historical bug)
+</pre>
+
+<p>
+Important:
+null returning "object" is a known bug from early JavaScript.
+</p>
+
+<p>
+Professional trick:
+</p>
+
+<pre>
+Array.isArray([]); // true
+</pre>
+
+<p>
+Use typeof for primitives.  
+Use special checks for arrays and objects.
+</p>
+
+<div class="challenge">
+Check the type of 3 different variables in your console.
+</div>
+</section>
+
+<section>
+<h2>Mastery Section: Real-World Thinking</h2>
+
+<p>
+When building real apps, always ask:
+</p>
+
+<ul>
+<li>Should this value ever change? → const</li>
+<li>Is this user input? → It will likely be a string</li>
+<li>Am I comparing values? → Use === not ==</li>
+<li>Am I relying on coercion? → Make conversion explicit</li>
+</ul>
+
+<pre>
+"5" == 5   // true (danger)
+"5" === 5  // false (safe)
+</pre>
+
+<p>
+Professionals use strict equality (===).
+</p>
+
+</section>
+
+</main>
+
+<script>
+const typewriter = document.getElementById("typewriter");
+const text = "Master JavaScript: Variables & Data Types";
+
+let index = 0;
+let forward = true;
+
+function typeLoop() {
+
+  if (forward) {
+    index++;
+    if (index >= text.length) {
+      forward = false;
+      setTimeout(typeLoop, 1500);
+      return;
+    }
+  } else {
+    index--;
+    if (index <= 0) {
+      forward = true;
+    }
+  }
+
+  typewriter.textContent = text.substring(0, index);
+  setTimeout(typeLoop, forward ? 100 : 50);
+}
+
+typeLoop();
+</script>
+
+</body>
+</html>

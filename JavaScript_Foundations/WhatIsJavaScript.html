@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Particle Animation Tutorial</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: #f4f4f4;
+    color: #333;
+  }
+
+  header {
+  background: #0d1117;
+  color: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
+  border-radius: 20px;
+  margin: 1rem;
+  box-shadow: 
+      inset 8px 8px 16px rgba(255, 255, 255, 0.05),
+      inset -8px -8px 16px rgba(0, 0, 0, 0.7),
+      8px 8px 16px rgba(0,0,0,0.3),
+      -8px -8px 16px rgba(255,255,255,0.05);
+  transition: transform 0.3s ease;
+}
+
+/* Slight hover effect for claymorphism */
+header:hover {
+  transform: translateY(-5px);
+}
+
+/* Typewriter cursor effect */
+#typewriter::after {
+  content: '|';
+  animation: blink 0.7s infinite;
+  color: #0ff;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+header p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+  main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  section {
+    margin-bottom: 3rem;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  }
+
+  h2 {
+    color: #0d1117;
+    margin-top: 0;
+  }
+
+  iframe {
+    width: 100%;
+    border: none;
+    margin-top: 1rem;
+    border-radius: 8px;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+  }
+
+  p, li {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="typewriter"></h1>
+  <p>Step by step: HTML → CSS → JavaScript</p>
+</header>
+
+<main>
+  <!-- Section 1: What is JavaScript -->
+  <section>
+    <h2>What is JavaScript?</h2>
+    <p>JavaScript is a <strong>programming language</strong> used to make web pages interactive. HTML provides structure, CSS provides style, but JavaScript enables dynamic behavior—like our particle animation example.</p>
+    <p>
+      Without JavaScript, the animation cannot move or respond to the mouse.<br/>
+      (What is JavaScript?)
+    </p>
+  </section>
+
+  <!-- Section 2: Step 1 - HTML Only -->
+  <section>
+    <h2>Step 1: HTML Only</h2>
+    <p>Here is the structure of our particle animation page with just HTML. Notice there is no styling or behavior yet—the canvas exists, but particles won’t move.</p>
+
+    <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="XJKLBvp" data-pen-title="HtmlOnly-JavascriptLesson1" data-user="JOYMUNDIA" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/JOYMUNDIA/pen/XJKLBvp">
+  HtmlOnly-JavascriptLesson1</a> by JOY MUNDIA (<a href="https://codepen.io/JOYMUNDIA">@JOYMUNDIA</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+      </p>
+      <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+    <p><strong>What’s happening?</strong> The browser shows the canvas element, but no CSS or JavaScript is applied. The page is static. Users can see the structure but nothing moves.</p>
+  </section>
+
+  <!-- Section 3: Step 2 - HTML + CSS -->
+  <section>
+    <h2>Step 2: HTML + CSS</h2>
+    <p>Now we add CSS to style the canvas and hero content. The background color, text, layout, and positioning appear properly, but particles still won’t animate.</p>
+
+    <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="yyJdxaJ" data-pen-title="HtmlCssOnly-JavascriptLesson1" data-user="JOYMUNDIA" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/JOYMUNDIA/pen/yyJdxaJ">
+  HtmlCssOnly-JavascriptLesson1</a> by JOY MUNDIA (<a href="https://codepen.io/JOYMUNDIA">@JOYMUNDIA</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+      </p>
+      <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+    <p><strong>What’s happening?</strong> CSS sets the canvas to cover the screen, positions the text and image, and makes the page visually appealing. The content is now styled but remains static.</p>
+  </section>
+
+  <!-- Section 4: Step 3 - HTML + CSS + JavaScript -->
+  <section>
+    <h2>Step 3: HTML + CSS + JavaScript</h2>
+    <p>Finally, we add the JavaScript particle animation. Now the particles move, bounce, connect, and respond to the mouse—making the page interactive.</p>
+
+    <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="ByzgOdB" data-pen-title="HtmlCssJavaScript-JavascriptLesson1" data-user="JOYMUNDIA" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/JOYMUNDIA/pen/ByzgOdB">
+  HtmlCssJavaScript-JavascriptLesson1</a> by JOY MUNDIA (<a href="https://codepen.io/JOYMUNDIA">@JOYMUNDIA</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+      </p>
+      <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+    <p><strong>What’s happening?</strong> JavaScript controls the particle positions, updates them on each frame, detects the mouse position, and draws connections dynamically on the canvas. Without JavaScript, this interactivity and animation wouldn’t exist.</p>
+  </section>
+
+  <!-- Section 5: Why JavaScript is Important -->
+  <section>
+    <h2>Why JavaScript is Important</h2>
+    <ul>
+      <li>Enables dynamic, interactive content (animations, sliders, popups).</li>
+      <li>Allows real-time updates without reloading the page.</li>
+      <li>Supports complex web applications (like our particle animation).</li>
+      <li>Enhances user experience with responsive, interactive elements.</li>
+    </ul>
+  </section>
+
+  <!-- Section 6: Where JavaScript is Used -->
+  <section>
+    <h2>Where JavaScript is Used</h2>
+    <ul>
+      <li>Web pages for interactivity (buttons, forms, animations).</li>
+      <li>Web servers with Node.js.</li>
+      <li>Mobile apps via frameworks like React Native.</li>
+      <li>Desktop apps via Electron (e.g., VSCode).</li>
+      <li>Browser-based games and interactive visualizations.</li>
+    </ul>
+
+    <p><strong>Famous Applications Using JavaScript:</strong></p>
+    <ul>
+      <li>Facebook – dynamic news feed.</li>
+      <li>Netflix – interactive content browsing.</li>
+      <li>Google Maps – real-time map interaction.</li>
+      <li>Spotify Web Player – interactive music UI.</li>
+      <li>Gmail – dynamic email updates without page reloads.</li>
+    </ul>
+  </section>
+
+  <!-- Section 7: Weaknesses of JavaScript -->
+  <section>
+    <h2>Weaknesses of JavaScript</h2>
+    <ul>
+      <li>Security risks because it runs on the client side.</li>
+      <li>Different browser implementations can cause inconsistencies.</li>
+      <li>Performance issues if animations or large scripts are poorly optimized.</li>
+      <li>Not suitable for low-level system programming.</li>
+      <li>Errors may fail silently, requiring careful debugging.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+const typewriter = document.getElementById("typewriter");
+const text = "Learn JavaScript Using Particle Animation";
+
+let index = 0;
+let forward = true;
+
+function typeLoop() {
+
+  if (forward) {
+    index++;
+    if (index >= text.length) {
+      forward = false;
+      setTimeout(typeLoop, 1500); // pause before deleting
+      return;
+    }
+  } else {
+    index--;
+    if (index <= 0) {
+      forward = true;
+    }
+  }
+
+  // Always set text from scratch (no +=)
+  typewriter.textContent = text.substring(0, index);
+
+  setTimeout(typeLoop, forward ? 100 : 50);
+}
+
+// Start immediately (no need for window load listener here)
+typeLoop();
+</script>
+
+</body>
+
+</html>
