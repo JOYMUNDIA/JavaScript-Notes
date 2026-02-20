@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Development Notes Hub</title>
+
+<style>
+/* ---------------- RESET ---------------- */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:#0f172a;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* ---------------- ANIMATED BACKGROUND ---------------- */
+.bg{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background: radial-gradient(circle at 20% 30%, #00f0ff22, transparent 40%),
+              radial-gradient(circle at 80% 70%, #ff00ff22, transparent 40%),
+              radial-gradient(circle at 50% 50%, #00ff9522, transparent 50%);
+  animation: moveBg 12s infinite alternate ease-in-out;
+  z-index:-1;
+}
+
+@keyframes moveBg{
+  from{transform:translateY(0px);}
+  to{transform:translateY(-40px);}
+}
+
+/* ---------------- HEADER ---------------- */
+header{
+  text-align:center;
+  padding:6rem 2rem 3rem 2rem;
+}
+
+header h1{
+  font-size:3rem;
+  background:linear-gradient(90deg,#00f0ff,#ff00ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+header p{
+  margin-top:1rem;
+  color:#aaa;
+  font-size:1.1rem;
+}
+
+/* ---------------- GRID ---------------- */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:2rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:2rem;
+}
+
+/* ---------------- CARD ---------------- */
+.card{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);
+  border-radius:20px;
+  padding:2rem;
+  transition:0.4s ease;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  position:relative;
+  overflow:hidden;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,255,255,0.2);
+}
+
+.card h2{
+  margin-bottom:1rem;
+  font-size:1.4rem;
+}
+
+.card p{
+  color:#ccc;
+  font-size:0.95rem;
+  margin-bottom:1.5rem;
+}
+
+/* ---------------- BUTTON ---------------- */
+.card a{
+  text-decoration:none;
+  padding:0.6rem 1.2rem;
+  border-radius:30px;
+  background:linear-gradient(90deg,#00f0ff,#ff00ff);
+  color:white;
+  font-weight:bold;
+  transition:0.3s;
+  display:inline-block;
+}
+
+.card a:hover{
+  opacity:0.8;
+}
+
+/* ---------------- FOOTER ---------------- */
+footer{
+  text-align:center;
+  padding:2rem;
+  color:#777;
+  margin-top:3rem;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media(max-width:600px){
+  header h1{
+    font-size:2rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<header>
+  <h1>JavaScript Foundation Notes</h1>
+  <p>Structured. Practical</p>
+</header>
+
+<main class="container">
+
+  <!-- Tutorial 1 -->
+  <div class="card">
+    <h2>What is JavaScript? </h2>
+        <p>Discover what JavaScript is, how it differs from HTML and CSS, and why it's essential for creating dynamic, interactive web pages.</p>
+    <a href="./JavaScript_Foundations/WhatIsJavaScript.html">View Notes →</a>
+  </div>
+
+  <!-- Tutorial 2 -->
+  <div class="card">
+    <h2>Variables and Data Types</h2>
+        <p>Learn how to store and manipulate information using variables, explore primitive and reference data types, and understand best practices for naming and initialization.</p>
+    <a href="./JavaScript_Foundations/VariablesAndDataTypes.html">View Notes →</a>
+  </div>
+
+  <!-- Tutorial 3 -->
+  <div class="card">
+    <h2>Comparison and Assignment Operators</h2>
+        <p>Understand how to compare values, assign data, and control logical flow using operators like ==, ===, !=, <, >, +=, and more.</p>
+    <a href="#">Coming Soon...</a>
+  </div>
+
+  <!-- Tutorial 4 -->
+  <div class="card">
+    <h2>if / switch / loops</h2>
+        <p>Master conditional logic with if/else and switch statements, and automate repetitive tasks using for, while, and do-while loops.</p>
+    <a href="#">Coming Soon...</a>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 JavaScript Notes | By Joy
+</footer>
+
+</body>
+</html>
