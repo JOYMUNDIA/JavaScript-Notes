@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Math - Complete Guide</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1 id="typewriter"></h1>
+  <p>From Zero Knowledge → Confident JavaScript Developer</p>
+</header>
+
+<main>
+
+<section>
+<h2>Step 1: Basic Math Operations</h2>
+
+<p>
+JavaScript can perform basic arithmetic using operators:
+</p>
+
+<pre>
+let a = 10;
+let b = 3;
+
+console.log(a + b); // Addition → 13
+console.log(a - b); // Subtraction → 7
+console.log(a * b); // Multiplication → 30
+console.log(a / b); // Division → 3.333333...
+console.log(a % b); // Modulus → 1 (remainder)
+console.log(a ** b); // Exponent → 1000 (10^3)
+</pre>
+
+<div class="challenge">
+<strong>Mini Challenge:</strong>  
+Calculate 15 divided by 4 and print both the quotient and the remainder.
+</div>
+</section>
+
+<section>
+<h2>Step 2: Math Object Basics</h2>
+
+<p>
+JavaScript has a built-in <code>Math</code> object with useful functions for numbers.
+</p>
+
+<h3>Common Methods:</h3>
+<pre>
+Math.round(4.6)   // 5 → rounds to nearest integer
+Math.floor(4.9)   // 4 → rounds down
+Math.ceil(4.1)    // 5 → rounds up
+Math.abs(-7)      // 7 → absolute value
+Math.pow(2, 3)    // 8 → 2^3
+Math.sqrt(16)     // 4 → square root
+Math.min(2, 5, 1) // 1 → smallest value
+Math.max(2, 5, 1) // 5 → largest value
+Math.random()     // 0 ≤ x < 1 → random decimal
+</pre>
+
+<p>
+- Combine methods to create more complex behavior.  
+- Example: random integer between 1 and 10:
+</p>
+
+<pre>
+let randomInt = Math.floor(Math.random() * 10) + 1;
+console.log(randomInt);
+</pre>
+
+<div class="challenge">
+<strong>Mini Challenge:</strong>  
+Generate a random number between 50 and 100.
+</div>
+</section>
+
+<section>
+<h2>Step 3: Using Math Constants</h2>
+
+<p>
+JavaScript provides useful constants through <code>Math</code>:
+</p>
+
+<pre>
+console.log(Math.PI);   // 3.141592653589793
+console.log(Math.E);    // 2.718281828459045
+console.log(Math.LN2);  // 0.6931471805599453
+console.log(Math.LN10); // 2.302585092994046
+</pre>
+
+<div class="challenge">
+<strong>Mini Challenge:</strong>  
+Calculate the circumference of a circle with radius 5 using <code>Math.PI</code>.
+</div>
+</section>
+
+<section>
+<h2>Step 4: Order of Operations</h2>
+
+<p>
+JavaScript follows the standard math rules (PEMDAS):
+</p>
+
+<pre>
+let result = 2 + 3 * 4; // 14 → multiplication before addition
+let result2 = (2 + 3) * 4; // 20 → parentheses change order
+</pre>
+
+<p>
+Always use parentheses if you want to be explicit.
+</p>
+
+<div class="challenge">
+<strong>Mini Challenge:</strong>  
+Calculate (10 - 3)^2 / 7 and print the result.
+</div>
+</section>
+
+<section>
+<h2>Step 5: Mental Model – Math in JavaScript</h2>
+
+<p>
+Think of it like a calculator inside your program:
+</p>
+
+<ul>
+<li><strong>Numbers:</strong> inputs</li>
+<li><strong>Math operators:</strong> calculator buttons (+, -, *, /, %)</li>
+<li><strong>Math object:</strong> extra functions (ceil, floor, pow, sqrt, random)</li>
+<li><strong>Output:</strong> <code>console.log()</code> or variables</li>
+</ul>
+
+<p>
+You can chain operations and functions to solve real-world problems.
+</p>
+
+<div class="challenge">
+<strong>Mastery Challenge:</strong>  
+Write a program that:
+<ul>
+<li>Asks the user for the radius of a circle</li>
+<li>Calculates the area (<code>Math.PI * r^2</code>)</li>
+<li>Rounds it up using <code>Math.ceil</code></li>
+<li>Prints the result</li>
+</ul>
+</div>
+</section>
+
+</main>
+
+<script>
+const typewriter = document.getElementById("typewriter");
+const text = "Master JavaScript: Math Operations & Math Object";
+
+let index = 0;
+let forward = true;
+
+function typeLoop() {
+  if (forward) {
+    index++;
+    if (index >= text.length) {
+      forward = false;
+      setTimeout(typeLoop, 1500);
+      return;
+    }
+  } else {
+    index--;
+    if (index <= 0) forward = true;
+  }
+
+  typewriter.textContent = text.substring(0, index + 1);
+  setTimeout(typeLoop, forward ? 100 : 50);
+}
+
+typeLoop();
+</script>
+
+</body>
+</html>

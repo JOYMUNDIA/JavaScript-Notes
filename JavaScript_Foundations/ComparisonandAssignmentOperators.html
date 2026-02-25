@@ -3,125 +3,395 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Notes Coming Soon</title>
-
-<style>
-/* --------------- RESET --------------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  height: 100vh;
-  background: linear-gradient(120deg,#0f172a,#1c1c1c,#0f172a);
-  background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* --------------- BACKGROUND ANIMATION --------------- */
-@keyframes gradientMove {
-  0% {background-position:0% 50%;}
-  50% {background-position:100% 50%;}
-  100% {background-position:0% 50%;}
-}
-
-/* --------------- CARD --------------- */
-.card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(25px);
-  padding: 3rem;
-  border-radius: 25px;
-  text-align: center;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-  max-width: 500px;
-  width: 90%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(0,255,255,0.3);
-}
-
-/* --------------- TEXT --------------- */
-.card h1 {
-  font-size: 2.5rem;
-  color: #00f0ff;
-  text-shadow: 0 0 10px #00f0ff, 0 0 20px #ff00ff;
-  margin-bottom: 1rem;
-}
-
-.card h2 {
-  font-size: 1.5rem;
-  color: #ff00ff;
-  margin-bottom: 1rem;
-}
-
-.card p {
-  font-size: 1.1rem;
-  color: #ccc;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-/* --------------- BUTTON --------------- */
-.button {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(90deg,#00f0ff,#ff00ff);
-  transition: 0.3s;
-}
-
-.button:hover {
-  opacity: 0.85;
-  transform: scale(1.05);
-}
-
-/* --------------- FOOTER --------------- */
-footer {
-  position: absolute;
-  bottom: 1rem;
-  width: 100%;
-  text-align: center;
-  color: #777;
-  font-size: 0.9rem;
-}
-
-/* --------------- RESPONSIVE --------------- */
-@media(max-width:600px) {
-  .card h1 {
-    font-size: 2rem;
-  }
-  .card h2 {
-    font-size: 1.2rem;
-  }
-}
-</style>
+<title>JavaScript Operators - Complete Guide</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="card">
-  <h1>Coming Soon ⏳</h1>
-  <h2>Move from Noob → Pro</h2>
-  <p>Exciting JavaScript notes and tutorials are on the way! Learn step by step from basic concepts like variables and operators to advanced interactive animations.</p>
-  <a href="../index.html" class="button">Back to Home</a>
+<header>
+  <h1 id="typewriter"></h1>
+  <p>From Zero Knowledge → Confident JavaScript Developer</p>
+</header>
+
+<main>
+
+<section>
+<h2>Step 1: What Are Operators?</h2>
+
+<p>
+Think of operators as instructions for your variables. They tell JavaScript to perform a specific action on one or more values.
+</p>
+
+<p>
+Just like math in real life, JavaScript has operators to:
+</p>
+<ul>
+  <li>Compare values</li>
+  <li>Do calculations</li>
+  <li>Combine logic</li>
+  <li>Store or update values</li>
+</ul>
+
+<pre>
+let a = 5;
+let b = 10;
+let sum = a + b; // + is the addition operator
+</pre>
+
+<p>
+Here, <strong>+</strong> tells JavaScript to add the numbers stored in <code>a</code> and <code>b</code>.
+</p>
+
+<div class="challenge">
+<strong>Mini Challenge:</strong>  
+Try using <code>-</code>, <code>*</code>, and <code>/</code> with two numbers and see the results in the console.
+</div>
+</section>
+
+<section>
+<h2>Step 2: Comparison Operators</h2>
+
+<p>
+Comparison operators check relationships between two values and always return a <strong>boolean</strong> (<code>true</code> or <code>false</code>).
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Meaning</th>
+      <th>Example</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>==</td>
+      <td>Equal (loose)</td>
+      <td>5 == "5"</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>===</td>
+      <td>Equal (strict)</td>
+      <td>5 === "5"</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>!=</td>
+      <td>Not equal (loose)</td>
+      <td>5 != "6"</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>!==</td>
+      <td>Not equal (strict)</td>
+      <td>5 !== "5"</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>&gt;</td>
+      <td>Greater than</td>
+      <td>10 &gt; 5</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>Less than</td>
+      <td>3 &lt; 7</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>&gt;=</td>
+      <td>Greater than or equal</td>
+      <td>5 &gt;= 5</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>&lt;=</td>
+      <td>Less than or equal</td>
+      <td>4 &lt;= 5</td>
+      <td>true</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="challenge">
+<strong>Try It:</strong>  
+Write expressions using <code>==, ===, !=, &gt;, &lt;</code> and see what returns <code>true</code> or <code>false</code>.
+</div>
+</section>
+
+<section>
+<h2>Step 3: Logical Operators</h2>
+
+<p>
+Logical operators combine or invert boolean values. Think “yes/no” decisions in code.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Meaning</th>
+      <th>Example</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&&</td>
+      <td>AND → true if both sides are true</td>
+      <td>true && false</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>||</td>
+      <td>OR → true if at least one side is true</td>
+      <td>true || false</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>!</td>
+      <td>NOT → inverts the boolean</td>
+      <td>!true</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre>
+let isAdult = true;
+let hasID = false;
+
+console.log(isAdult && hasID); // false
+console.log(isAdult || hasID); // true
+console.log(!isAdult);         // false
+</pre>
+
+<div class="challenge">
+<strong>Mini Challenge:</strong>  
+Write an expression that checks if a person is both adult and a student.
+</div>
+</section>
+
+<section>
+<h2>Step 4: Arithmetic Operators</h2>
+
+<p>
+Arithmetic operators do math in JavaScript. The basics are +, -, *, /, %, and **.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Meaning</th>
+      <th>Example</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>+</td>
+      <td>Addition</td>
+      <td>5 + 3</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Subtraction</td>
+      <td>10 - 4</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>Multiplication</td>
+      <td>6 * 7</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>/</td>
+      <td>Division</td>
+      <td>12 / 3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>%</td>
+      <td>Remainder</td>
+      <td>10 % 3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>**</td>
+      <td>Exponentiation</td>
+      <td>2 ** 3</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="challenge">
+<strong>Try It:</strong>  
+Calculate the remainder of 15 divided by 4. Then, raise 3 to the power of 4.
+</div>
+</section>
+
+<section>
+<h2>Step 5: Assignment Operators</h2>
+
+<p>
+Assignment operators store values in variables. They can also update values quickly.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Meaning</th>
+      <th>Example</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>=</td>
+      <td>Assign value</td>
+      <td>x = 5</td>
+      <td>x is 5</td>
+    </tr>
+    <tr>
+      <td>+=</td>
+      <td>Add & assign</td>
+      <td>x += 3</td>
+      <td>x = x + 3</td>
+    </tr>
+    <tr>
+      <td>-=</td>
+      <td>Subtract & assign</td>
+      <td>x -= 2</td>
+      <td>x = x - 2</td>
+    </tr>
+    <tr>
+      <td>*=</td>
+      <td>Multiply & assign</td>
+      <td>x *= 4</td>
+      <td>x = x * 4</td>
+    </tr>
+    <tr>
+      <td>/=</td>
+      <td>Divide & assign</td>
+      <td>x /= 2</td>
+      <td>x = x / 2</td>
+    </tr>
+    <tr>
+      <td>%=</td>
+      <td>Remainder & assign</td>
+      <td>x %= 3</td>
+      <td>x = x % 3</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre>
+let score = 10;
+score += 5; // score = 15
+score *= 2; // score = 30
+</pre>
+
+<div class="challenge">
+<strong>Mini Challenge:</strong>  
+Start with <code>let points = 20;</code> and update it using at least 3 different assignment operators.
+</div>
+</section>
+
+<section>
+<h2>Step 6: Combining Operators</h2>
+
+<p>
+Operators can work together in expressions. Parentheses <code>()</code> can help control order.
+</p>
+
+<pre>
+let age = 20;
+let hasLicense = true;
+
+let canDrive = (age >= 18) && hasLicense;
+console.log(canDrive); // true
+</pre>
+
+<p>
+Follow the order of operations: parentheses → exponents → multiplication/division → addition/subtraction → comparison → logical operators.
+</p>
+
+<div class="challenge">
+<strong>Mini Challenge:</strong>  
+Write an expression to check if a person is an adult (<code>age >= 18</code>) and has enough money (<code>money >= 10</code>) to buy a ticket.
+</div>
+</section>
+
+<section>
+<h2>Step 7: Mental Model for Operators</h2>
+
+<ul>
+  <li><strong>Comparison:</strong> Compares two values → true/false.</li>
+  <li><strong>Logical:</strong> Combines booleans → true/false.</li>
+  <li><strong>Arithmetic:</strong> Does math → returns number.</li>
+  <li><strong>Assignment:</strong> Stores or updates values.</li>
+</ul>
+
+<p>
+Think of it like a factory: numbers and variables go in, operators perform actions, results come out.
+</p>
+
+<div class="challenge">
+<strong>Concept Fortification:</strong>  
+Create a small program that calculates a total price with tax and checks if it’s over a budget. Use at least one arithmetic, one assignment, and one comparison operator.
+</div>
+</section>
+
+<div class="nav-btns">
+  <a href="VariablesAndDataTypes.html" class="prev-article">
+    ← Variables & Data Types
+  </a>
+
+  <a href="ControlFlow.html" class="next-article">
+    Control Flow →
+  </a>
 </div>
 
-<footer>
-  © 2026 JavaScript Notes Hub | Keep Learning
-</footer>
+</main>
+
+<script>
+const typewriter = document.getElementById("typewriter");
+const text = "Master JavaScript: Operators";
+
+let index = 0;
+let forward = true;
+
+function typeLoop() {
+
+  if (forward) {
+    index++;
+    if (index >= text.length) {
+      forward = false;
+      setTimeout(typeLoop, 1500);
+      return;
+    }
+  } else {
+    index--;
+    if (index <= 0) {
+      forward = true;
+    }
+  }
+
+  typewriter.textContent = text.substring(0, index + 1);
+  setTimeout(typeLoop, forward ? 100 : 50);
+}
+
+typeLoop();
+</script>
 
 </body>
 </html>
