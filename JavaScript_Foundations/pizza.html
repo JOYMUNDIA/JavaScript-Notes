@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pizza Pie Chart</title>
+
+<style>
+
+body{
+  margin:0;
+  background:#fff6e8;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family:Arial;
+}
+
+/* container */
+
+.pizza{
+  position:relative;
+  width:260px;
+  height:260px;
+}
+
+/* slice */
+
+.slice{
+  position:absolute;
+  width:50%;
+  height:50%;
+  left:50%;
+  top:50%;
+  transform-origin:0 0;
+}
+
+/* actual pizza look */
+
+.slice::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  left:-100%;
+  top:-100%;
+  background:
+    radial-gradient(circle at center,#ffd86a 65%,#c97a22 66%,#b56318 72%);
+  clip-path:polygon(50% 50%,100% 0,100% 100%);
+}
+
+/* pepperoni */
+
+.slice::after{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  left:-100%;
+  top:-100%;
+  background:
+    radial-gradient(circle at 70% 40%,#b22222 10px,transparent 11px),
+    radial-gradient(circle at 60% 70%,#b22222 10px,transparent 11px);
+  clip-path:polygon(50% 50%,100% 0,100% 100%);
+}
+
+/* rotate slices like pie chart */
+
+.s1{transform:rotate(0deg)}
+.s2{transform:rotate(36deg)}
+.s3{transform:rotate(72deg)}
+.s4{transform:rotate(108deg)}
+.s5{transform:rotate(144deg)}
+.s6{transform:rotate(180deg)}
+.s7{transform:rotate(216deg)}
+.s8{transform:rotate(252deg)}
+.s9{transform:rotate(288deg)}
+.s10{transform:rotate(324deg)}
+
+/* detach animation */
+
+.slice:hover{
+  transform:translate(20px,-20px) rotate(var(--angle));
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="pizza">
+
+<div class="slice s1" style="--angle:0deg"></div>
+<div class="slice s2" style="--angle:36deg"></div>
+<div class="slice s3" style="--angle:72deg"></div>
+<div class="slice s4" style="--angle:108deg"></div>
+<div class="slice s5" style="--angle:144deg"></div>
+<div class="slice s6" style="--angle:180deg"></div>
+<div class="slice s7" style="--angle:216deg"></div>
+<div class="slice s8" style="--angle:252deg"></div>
+<div class="slice s9" style="--angle:288deg"></div>
+<div class="slice s10" style="--angle:324deg"></div>
+
+</div>
+
+</body>
+</html>
+
