@@ -2763,7 +2763,21 @@ Share them among 5 kids using <code>%=</code>.
 </section>
 
 <section>
+
 <h2>Step 6: Combining Operators</h2>
+
+<p>
+In real programs, we rarely use just one type of operator.  
+Most decisions require combining <strong>comparison operators</strong>, <strong>logical operators</strong>, and <strong>variables</strong>.
+</p>
+
+<p>
+This is how programs make intelligent decisions.
+</p>
+
+<hr>
+
+<h3>Example Program</h3>
 
 <pre>
 let age = 20;
@@ -2773,6 +2787,401 @@ let canDrive = (age >= 18) && hasLicense;
 
 console.log(canDrive);
 </pre>
+
+<p>
+This program checks whether someone is allowed to drive.
+</p>
+
+<hr>
+
+<h3>Step 1: Create Variables (Cubes in Memory)</h3>
+
+<pre>
+let age = 20;
+let hasLicense = true;
+</pre>
+
+<p>
+JavaScript creates two cubes in memory.
+</p>
+
+<ul>
+<li>A cube labeled <strong>age</strong> containing <strong>20</strong></li>
+<li>A cube labeled <strong>hasLicense</strong> containing <strong>true</strong></li>
+</ul>
+
+<p>
+These cubes store information about a person.
+</p>
+
+<hr>
+
+<h3>Step 2: Comparison Operator</h3>
+
+Inside our expression we see:
+
+<pre>
+age >= 18
+</pre>
+
+<p>
+This uses the <strong>greater than or equal</strong> operator.
+</p>
+
+<p>
+JavaScript asks the question:
+</p>
+
+<blockquote>
+Is the value inside the <strong>age cube</strong> greater than or equal to 18?
+</blockquote>
+
+<p>
+The value is:
+</p>
+
+<pre>
+20 >= 18
+</pre>
+
+Result:
+
+<pre>
+true
+</pre>
+
+<p>
+So the first condition becomes:
+</p>
+
+<pre>
+true
+</pre>
+
+<hr>
+
+<h3>Step 3: Logical Operator</h3>
+
+Now look at the full expression:
+
+<pre>
+(age >= 18) && hasLicense
+</pre>
+
+After the comparison is evaluated, JavaScript effectively sees:
+
+<pre>
+true && true
+</pre>
+
+<p>
+The logical AND operator <code>&&</code> checks if <strong>both conditions are true</strong>.
+</p>
+
+Truth table reminder:
+
+<table>
+
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A && B</th>
+</tr>
+</thead>
+
+<tr>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+
+<tr>
+<td>true</td>
+<td>false</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td>false</td>
+<td>true</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+
+</table>
+
+Since both values are true:
+
+<pre>
+true && true
+</pre>
+
+Result:
+
+<pre>
+true
+</pre>
+
+<hr>
+
+<h3>Step 4: Assignment Operator</h3>
+
+Now the result is stored in a new variable:
+
+<pre>
+let canDrive = true;
+</pre>
+
+JavaScript creates another cube labeled:
+
+<strong>canDrive</strong>
+
+And places the value:
+
+<strong>true</strong>
+
+inside it.
+
+<hr>
+
+<h3>Step 5: Output the Result</h3>
+
+Finally we run:
+
+<pre>
+console.log(canDrive);
+</pre>
+
+The console prints:
+
+<pre>
+true
+</pre>
+
+Meaning:
+
+<blockquote>
+The person is allowed to drive.
+</blockquote>
+
+<hr>
+
+<h3>How JavaScript Evaluates the Expression</h3>
+
+JavaScript evaluates the expression step by step.
+
+Original expression:
+
+<pre>
+(age >= 18) && hasLicense
+</pre>
+
+Step 1 — comparison:
+
+<pre>
+true && hasLicense
+</pre>
+
+Step 2 — replace variable:
+
+<pre>
+true && true
+</pre>
+
+Step 3 — logical operation:
+
+<pre>
+true
+</pre>
+
+<hr>
+
+<h3>Real World Analogy</h3>
+
+Imagine a driving school checking if someone can drive.
+
+The instructor asks two questions:
+
+<ul>
+<li>Is the person at least 18?</li>
+<li>Do they have a license?</li>
+</ul>
+
+If the answer to both questions is yes:
+
+<pre>
+true && true
+</pre>
+
+The instructor says:
+
+<blockquote>
+"You are allowed to drive."
+</blockquote>
+
+<hr>
+
+<h3>Changing the Values</h3>
+
+Let's change the inputs.
+
+Example:
+
+<pre>
+let age = 16;
+let hasLicense = true;
+
+let canDrive = (age >= 18) && hasLicense;
+</pre>
+
+Now JavaScript evaluates:
+
+<pre>
+16 >= 18
+</pre>
+
+Result:
+
+<pre>
+false
+</pre>
+
+So the expression becomes:
+
+<pre>
+false && true
+</pre>
+
+Result:
+
+<pre>
+false
+</pre>
+
+Meaning:
+
+<blockquote>
+The person cannot drive because they are too young.
+</blockquote>
+
+<hr>
+
+<h3>Another Scenario</h3>
+
+<pre>
+let age = 22;
+let hasLicense = false;
+</pre>
+
+Evaluation:
+
+<pre>
+22 >= 18
+</pre>
+
+Result:
+
+<pre>
+true
+</pre>
+
+Expression becomes:
+
+<pre>
+true && false
+</pre>
+
+Result:
+
+<pre>
+false
+</pre>
+
+Meaning:
+
+<blockquote>
+The person is old enough but does not have a license.
+</blockquote>
+
+<hr>
+
+<h3>Why Combining Operators Is Important</h3>
+
+Combining operators allows programs to make complex decisions.
+
+Examples in real applications:
+
+<ul>
+
+<li>Login systems</li>
+<li>Online purchases</li>
+<li>Game rules</li>
+<li>Security checks</li>
+<li>Age restrictions</li>
+<li>Bank transactions</li>
+
+</ul>
+
+Example: ATM withdrawal
+
+<pre>
+let balance = 500;
+let withdraw = 200;
+let cardValid = true;
+
+if (balance >= withdraw && cardValid) {
+console.log("Withdrawal approved");
+}
+</pre>
+
+<hr>
+
+<div class="challenge">
+
+<strong>Mini Challenges</strong>
+
+1️⃣ Check if someone can vote.
+
+Rules:
+<ul>
+<li>Age must be 18 or older</li>
+<li>Must be a citizen</li>
+</ul>
+
+Variables:
+
+<pre>
+let age = 21;
+let isCitizen = true;
+</pre>
+
+---
+
+2️⃣ Check if a user can log in.
+
+Rules:
+<ul>
+<li>Password must be correct</li>
+<li>User must not be banned</li>
+</ul>
+
+---
+
+3️⃣ Check if a student passes.
+
+Rules:
+<ul>
+<li>Score ≥ 50</li>
+<li>OR teacher approval</li>
+</ul>
+
+</div>
 
 </section>
 
