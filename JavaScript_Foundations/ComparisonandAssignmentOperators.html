@@ -425,9 +425,9 @@ svg{
 
 .pizza-demo{
   position:relative;
-  width:760px;
-  margin:auto;
-  margin-top:40px;
+  width:100%;
+  max-width:760px;
+  margin:40px auto;
 }
 
 /* first explanation bubble */
@@ -2293,18 +2293,472 @@ Increase it using `++`.
 </section>
 
 <section>
-<h2>Step 5: Assignment Operators</h2>
+
+<h2>Step 5: Assignment Operators — Updating the Cube</h2>
 
 <p>
-Assignment operators store and update values in variables.
+Earlier we learned that a variable is like a <strong>cube in memory</strong>.
 </p>
+
+<p>
+The cube has:
+</p>
+
+<ul>
+<li>a <strong>label</strong> (the variable name)</li>
+<li>a <strong>value inside it</strong></li>
+</ul>
+
+<p>
+Example:
+</p>
+
+<pre>
+let score = 10;
+</pre>
+
+<p>
+JavaScript creates a cube labeled <strong>score</strong> and puts the value <strong>10</strong> inside.
+</p>
+
+<br/>
+
+<div class="scene">
+  <div class="cube">
+    <div class="face front">
+      <div class="label">score</div>
+      <div class="number">10</div>
+    </div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+</div>
+
+<br/>
+
+<p>
+Assignment operators are simply <strong>shortcuts for updating what is inside the cube</strong>.
+</p>
+
+<hr/>
+
+<h3>The Basic Assignment Operator (=)</h3>
+
+<p>
+The <code>=</code> operator replaces whatever is inside the cube.
+</p>
+
+<pre>
+score = 20;
+</pre>
+
+<p>
+JavaScript does this:
+</p>
+
+<ul>
+<li>1️⃣ Find the cube labeled <strong>score</strong></li>
+<li>2️⃣ Remove the value <strong>10</strong></li>
+<li>3️⃣ Place <strong>20</strong> inside</li>
+</ul>
+
+<br/>
+
+<div class="scene">
+  <div class="cube">
+    <div class="face front">
+      <div class="label">score</div>
+      <div class="number">20</div>
+    </div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+</div>
+
+<hr/>
+
+<h3>Addition Assignment (<code>+=</code>)</h3>
+
+<p>
+The <code>+=</code> operator means:
+</p>
+
+<blockquote>
+“Take the value already inside the cube, add something to it, and store the result back in the same cube.”
+</blockquote>
+
+Example:
 
 <pre>
 let score = 10;
 
 score += 5;
-score *= 2;
 </pre>
+
+<p>
+JavaScript interprets this as:
+</p>
+
+<pre>
+score = score + 5;
+</pre>
+
+<p>
+Step by step:
+</p>
+
+<ul>
+<li>1️⃣ Read the value inside the cube → <strong>10</strong></li>
+<li>2️⃣ Add <strong>5</strong></li>
+<li>3️⃣ Store the result <strong>15</strong> back in the cube</li>
+</ul>
+
+<br/>
+
+<div class="scene">
+  <div class="cube">
+    <div class="face front">
+      <div class="label">score</div>
+      <div class="number">15</div>
+    </div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+</div>
+
+<hr/>
+
+<h3>Subtraction Assignment (<code>-=</code>)</h3>
+
+<p>
+The <code>-=</code> operator subtracts a value from the cube.
+</p>
+
+Example:
+
+<pre>
+let lives = 5;
+
+lives -= 1;
+</pre>
+
+Equivalent to:
+
+<pre>
+lives = lives - 1;
+</pre>
+
+<p>
+JavaScript:
+</p>
+
+<ul>
+<li>1️⃣ Reads the value inside the cube → <strong>5</strong></li>
+<li>2️⃣ Subtracts <strong>1</strong></li>
+<li>3️⃣ Stores the result <strong>4</strong> back in the cube</li>
+</ul>
+
+<br/>
+
+<div class="scene">
+  <div class="cube">
+    <div class="face front">
+      <div class="label">lives</div>
+      <div class="number">4</div>
+    </div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+</div>
+
+<hr/>
+
+<h3>Multiplication Assignment (<code>*=</code>)</h3>
+
+<p>
+This multiplies the cube's value and stores the result.
+</p>
+
+Example:
+
+<pre>
+let money = 50;
+
+money *= 2;
+</pre>
+
+Equivalent to:
+
+<pre>
+money = money * 2;
+</pre>
+
+<p>
+Cube update:
+</p>
+
+<ul>
+<li>50 × 2 = 100</li>
+<li>The cube now contains <strong>100</strong></li>
+</ul>
+
+<br/>
+
+<div class="scene">
+  <div class="cube">
+    <div class="face front">
+      <div class="label">money</div>
+      <div class="number">100</div>
+    </div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+</div>
+
+<hr/>
+
+<h3>Division Assignment (<code>/=</code>)</h3>
+
+Example:
+
+<pre>
+let pizza = 12;
+
+pizza /= 3;
+</pre>
+
+Equivalent to:
+
+<pre>
+pizza = pizza / 3;
+</pre>
+
+<p>
+The cube updates from <strong>12</strong> to <strong>4</strong>.
+</p>
+
+<br/>
+
+<div class="scene">
+  <div class="cube">
+    <div class="face front">
+      <div class="label">pizza</div>
+      <div class="number">4</div>
+    </div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+</div>
+
+<hr/>
+
+<h3>Remainder Assignment (<code>%=</code>)</h3>
+
+This stores the <strong>remainder after division</strong>.
+
+Example:
+
+<pre>
+let candies = 10;
+
+candies %= 3;
+</pre>
+
+Equivalent to:
+
+<pre>
+candies = candies % 3;
+</pre>
+
+<p>
+Result stored in cube:
+</p>
+
+<pre>
+1
+</pre>
+
+<br/>
+
+<div class="scene">
+  <div class="cube">
+    <div class="face front">
+      <div class="label">candies</div>
+      <div class="number">1</div>
+    </div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+</div>
+
+<hr/>
+
+<h3>Exponent Assignment (<code>**=</code>)</h3>
+
+Raises the cube value to a power.
+
+Example:
+
+<pre>
+let number = 2;
+
+number **= 3;
+</pre>
+
+Equivalent to:
+
+<pre>
+number = number ** 3;
+</pre>
+
+<p>
+Result stored in the cube:
+</p>
+
+<pre>
+8
+</pre>
+
+<br/>
+
+<div class="scene">
+  <div class="cube">
+    <div class="face front">
+      <div class="label">number</div>
+      <div class="number">8</div>
+    </div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+</div>
+
+<hr/>
+
+<h3>Complete Assignment Operator Table</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+<th>Equivalent Code</th>
+</tr>
+</thead>
+
+<tr>
+<td>=</td>
+<td>Assign value</td>
+<td>x = 5</td>
+</tr>
+
+<tr>
+<td>+=</td>
+<td>Add and store</td>
+<td>x = x + 5</td>
+</tr>
+
+<tr>
+<td>-=</td>
+<td>Subtract and store</td>
+<td>x = x - 5</td>
+</tr>
+
+<tr>
+<td>*=</td>
+<td>Multiply and store</td>
+<td>x = x * 5</td>
+</tr>
+
+<tr>
+<td>/=</td>
+<td>Divide and store</td>
+<td>x = x / 5</td>
+</tr>
+
+<tr>
+<td>%=</td>
+<td>Remainder and store</td>
+<td>x = x % 5</td>
+</tr>
+
+<tr>
+<td>**=</td>
+<td>Power and store</td>
+<td>x = x ** 5</td>
+</tr>
+
+</table>
+
+<hr/>
+
+<div class="challenge">
+
+<strong>Mini Challenges</strong>
+
+1️⃣ Start with:
+
+<pre>
+let score = 10;
+</pre>
+
+Add 20 using <code>+=</code>.
+
+---
+
+2️⃣ Start with:
+
+<pre>
+let money = 100;
+</pre>
+
+Double it using <code>*=</code>.
+
+---
+
+3️⃣ Start with:
+
+<pre>
+let lives = 5;
+</pre>
+
+Lose one life using <code>-=</code>.
+
+---
+
+4️⃣ Start with:
+
+<pre>
+let candies = 17;
+</pre>
+
+Share them among 5 kids using <code>%=</code>.
+
+</div>
 
 </section>
 
